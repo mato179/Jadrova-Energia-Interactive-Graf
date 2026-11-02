@@ -29,8 +29,8 @@ h1{margin:0;font-size:clamp(22px,3.2vw,40px);font-weight:800;letter-spacing:.02e
 .chip.on{background:linear-gradient(180deg,rgba(255,255,255,.55) 0,rgba(255,255,255,.12) 46%,rgba(255,255,255,0) 50%),linear-gradient(145deg,color-mix(in srgb,var(--c1) 46%,transparent),color-mix(in srgb,var(--c1) 20%,transparent));border-color:rgba(255,255,255,.85);box-shadow:0 12px 26px -4px rgba(0,0,0,.45),0 0 26px -2px var(--c1),inset 0 2px 1px rgba(255,255,255,.95),inset 0 -3px 5px rgba(255,255,255,.35)}
 main{flex:1;position:relative;margin:0 22px;min-height:0}
 #map{position:absolute;inset:0}
-.tile{position:absolute;padding:4.5px;transform-origin:center;transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .35s,filter .35s;animation:pop .8s cubic-bezier(.34,1.56,.64,1) backwards;animation-delay:calc(var(--i)*30ms);cursor:pointer;will-change:transform}
-@keyframes pop{from{opacity:0;transform:scale(.4) translateY(30px);filter:blur(8px)}}
+.tile{position:absolute;padding:4.5px;transform-origin:center;transition:transform .45s cubic-bezier(.34,1.56,.64,1),opacity .35s,filter .35s;cursor:pointer;will-change:transform}
+@keyframes pop{from{opacity:0;transform:translateY(34px) scale(.95);filter:blur(16px) saturate(.3) brightness(1.4)}}
 .in{display:flex;flex-direction:column;position:relative;width:100%;height:100%;border-radius:15px;overflow:hidden;padding:10px 12px;background:linear-gradient(145deg,color-mix(in srgb,var(--c1) 90%,transparent),color-mix(in srgb,var(--c2) 76%,transparent));-webkit-backdrop-filter:blur(14px) saturate(2.4) brightness(1.1);backdrop-filter:blur(14px) saturate(2.4) brightness(1.1);border:1px solid rgba(255,255,255,.38);box-shadow:0 8px 24px rgba(0,0,0,.3),inset 1.5px 1.5px 2px rgba(255,255,255,.7),inset -1.5px -2px 3px rgba(255,255,255,.22),inset 0 0 16px rgba(255,255,255,.05);transition:box-shadow .35s,border-color .35s}
 .in::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,30%) var(--my,0%),rgba(255,255,255,.38),transparent 55%);opacity:0;transition:opacity .3s}
 .in::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg)}
@@ -45,6 +45,61 @@ main{flex:1;position:relative;margin:0 22px;min-height:0}
 .tw{position:absolute;left:12px;bottom:9px;font-weight:700;font-variant-numeric:tabular-nums;font-size:12px;opacity:.95}
 #tip .cap{margin-top:10px;font-size:11px;letter-spacing:.03em}#tip .bar{height:10px;padding:0;margin-top:3px;border-radius:99px;background:rgba(255,255,255,.2);box-shadow:inset 0 1px 3px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.15)}#tip .bar i{border-radius:99px;background:linear-gradient(90deg,var(--c1),var(--c2));box-shadow:0 0 14px var(--c1),inset 0 1px 1px rgba(255,255,255,.75);animation:grow .7s cubic-bezier(.22,1,.36,1)}@keyframes grow{from{width:0}}
 .tw.f{position:static;left:auto;bottom:auto;margin-top:2px;white-space:nowrap;line-height:1.25}.cc{max-width:100%;white-space:nowrap}.det{display:flex;gap:18px;margin-top:10px;position:relative}.det b{display:block;font-size:17px;font-variant-numeric:tabular-nums;text-shadow:0 1px 4px rgba(0,0,0,.35)}.det span{font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.seg{display:flex;gap:8px;align-self:center}
+#wm{position:absolute;inset:0;display:none}
+body.mv #wm{display:block}body.mv #map,body.mv .legend{display:none}
+#wm svg{width:100%;height:100%}
+.ATA{display:none}
+.datamaps-subunit{vector-effect:non-scaling-stroke;transition:filter .25s}
+.datamaps-subunit:hover{filter:brightness(1.35)}
+.datamaps-bubble{vector-effect:non-scaling-stroke;cursor:pointer;filter:drop-shadow(0 0 5px rgba(255,255,255,.7))}
+.datamaps-bubble:hover{filter:drop-shadow(0 0 10px #fff) brightness(1.3)}
+#rs{position:absolute;right:6px;top:0;z-index:6}
+.chip.vb.act{filter:brightness(1.25);border-color:#fff;box-shadow:0 0 24px -2px var(--c1),inset 0 2px 1px rgba(255,255,255,.95)}
+#pl{position:absolute;left:10px;bottom:10px;z-index:5;max-width:280px;max-height:55%;overflow:auto;padding:14px 16px;border-radius:18px;background:linear-gradient(145deg,rgba(52,56,70,.66),rgba(24,27,38,.6));-webkit-backdrop-filter:blur(20px) saturate(1.3);backdrop-filter:blur(20px) saturate(1.3);border:1px solid rgba(255,255,255,.22);box-shadow:0 18px 50px rgba(0,0,0,.5),inset 1.5px 1.5px 2px rgba(255,255,255,.4);font-size:12px;opacity:0;pointer-events:none;transform:translateY(10px);transition:.35s}
+#pl.v{opacity:1;pointer-events:auto;transform:none}
+#pl h3{margin:0 0 8px;font-size:15px}
+.pr{display:flex;justify-content:space-between;gap:18px;padding:3px 0;color:#fff}
+.pn{margin-top:8px;font-size:10px;opacity:.7}
+#zi,#zo{position:absolute;right:6px;z-index:6;padding:6px 15px!important;font-size:18px!important}#zi{top:46px}#zo{top:90px}
+#gl{position:absolute;inset:0;cursor:grab}#gl:active{cursor:grabbing}
+#gl .oc{filter:drop-shadow(0 0 40px rgba(110,150,255,.5));animation:gin 1.2s cubic-bezier(.34,1.56,.64,1) backwards;transform-box:fill-box;transform-origin:center}
+@keyframes gin{from{opacity:0;transform:scale(.6)}}
+#gl .sp{pointer-events:none}
+#gl .gr{fill:none;stroke:rgba(255,255,255,.08);stroke-width:.5;pointer-events:none}
+.ct{stroke:rgba(255,255,255,.3);stroke-width:.5;vector-effect:non-scaling-stroke;animation:cin .9s ease backwards;animation-delay:calc(var(--i)*7ms);transition:filter .2s}
+@keyframes cin{from{opacity:0}}
+.ct.on{stroke:rgba(255,255,255,.55);cursor:pointer}
+.ct:hover{filter:brightness(1.35) drop-shadow(0 0 6px rgba(255,255,255,.7));stroke:#fff}
+.lb{fill:#fff;text-anchor:middle;dominant-baseline:middle;pointer-events:none;font-weight:700;letter-spacing:.03em;paint-order:stroke;stroke:rgba(0,0,0,.65);stroke-width:3px;stroke-linejoin:round}
+.pt{cursor:pointer}
+.pt .hl{opacity:.45;transform-box:fill-box;transform-origin:center;animation:pls 2.4s ease-out infinite}
+@keyframes pls{from{transform:scale(.5);opacity:.7}to{transform:scale(1.6);opacity:0}}
+.pt .dt{fill:#fff;stroke:rgba(0,0,0,.4);stroke-width:1;transform-box:fill-box;transform-origin:center;animation:ppop .7s cubic-bezier(.34,1.56,.64,1) backwards;animation-delay:calc(1s + var(--i)*20ms);transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+@keyframes ppop{from{transform:scale(0)}}
+.pt:hover .dt{transform:scale(1.7)}
+.ct{transform-box:fill-box;transform-origin:center;transition:filter .2s,transform .45s cubic-bezier(.34,1.56,.64,1)}
+.ct.on:hover{filter:none;stroke:rgba(255,255,255,.55)}
+.hv{pointer-events:none}
+.hc{stroke:#fff;stroke-width:1.2;vector-effect:non-scaling-stroke;pointer-events:none;transform-box:fill-box;transform-origin:center;animation:hpop .45s cubic-bezier(.34,1.56,.64,1) forwards;filter:brightness(1.25) drop-shadow(0 0 12px var(--gc))}
+@keyframes hpop{from{transform:scale(1)}to{transform:scale(var(--hs,1.06))}}
+#map::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:40;opacity:0;background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.2) 50%,transparent 62%)}
+#map.sw::after{animation:sweep 1.6s .8s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes sweep{0%{opacity:1;transform:translateX(-110%)}100%{opacity:0;transform:translateX(110%)}}
+@keyframes rise{from{opacity:0;transform:translateY(18px);filter:blur(10px)}}
+.eyebrow{animation:rise 1s cubic-bezier(.16,1,.3,1) .05s backwards}
+h1{animation:rise 1.2s cubic-bezier(.16,1,.3,1) .15s backwards}
+.sub{animation:rise 1.2s cubic-bezier(.16,1,.3,1) .3s backwards}
+.seg{animation:rise 1s cubic-bezier(.16,1,.3,1) .4s backwards}
+.stat{animation:rise 1s cubic-bezier(.16,1,.3,1) .4s backwards}.stat:nth-child(2){animation-delay:.5s}.stat:nth-child(3){animation-delay:.6s}
+.legend .chip{animation:rise 1s cubic-bezier(.16,1,.3,1) .6s backwards}.legend .chip:nth-child(2){animation-delay:.68s}.legend .chip:nth-child(3){animation-delay:.76s}.legend .chip:nth-child(4){animation-delay:.84s}
+@keyframes glint{from{left:-70%}to{left:130%}}
+.tile .in::after{animation:glint 1.2s ease-out backwards;animation-delay:calc(var(--dl,0ms) + 700ms)}
+.tile .in{animation:pop 1.3s cubic-bezier(.16,1,.3,1) backwards;animation-delay:var(--dl,0ms)}
+.tile.nf .in::after,.tile.nf .in{animation:none}
+#map::before{content:"";position:absolute;inset:-10%;pointer-events:none;z-index:-1;opacity:0;background:radial-gradient(closest-side,rgba(122,162,255,.38),rgba(168,85,247,.16) 55%,transparent)}
+#map.sw::before{animation:bloom 2.4s ease-out}
+@keyframes bloom{0%{opacity:0;transform:scale(.3)}35%{opacity:1}100%{opacity:0;transform:scale(1.35)}}
 #tip{position:fixed;z-index:99;pointer-events:none;padding:12px 15px;border-radius:14px;background:linear-gradient(145deg,rgba(52,56,70,.66),rgba(24,27,38,.6));-webkit-backdrop-filter:blur(20px) saturate(1.3);backdrop-filter:blur(20px) saturate(1.3);border:1px solid rgba(255,255,255,.22);box-shadow:0 18px 50px rgba(0,0,0,.5),inset 1.5px 1.5px 2px rgba(255,255,255,.4),inset -1px -1px 2px rgba(255,255,255,.12);font-size:12px;min-width:220px;opacity:0;transform:translateY(8px) scale(.96);translate:var(--ox,26px) var(--oy,26px);transition:opacity .15s,transform .25s cubic-bezier(.34,1.56,.64,1),translate .28s cubic-bezier(.22,1,.36,1)}
 #tip.v{opacity:1;transform:none}
 #tip h3{margin:0 0 8px;font-size:15px}
@@ -58,12 +113,16 @@ footer{padding:10px 28px 14px;font-size:10px;letter-spacing:.12em;text-transform
 <header>
  <div><div class="eyebrow">⚛ Interaktívna mapa</div><h1>JADROVÁ ENERGIA VO SVETE</h1>
  <div class="sub">plocha = TWh výroba · prejdi kurzorom nad krajinu · klikni pre výber</div></div>
- <div class="stats"><div class="stat"><b id="n1">0</b><span>PWh celkom</span></div><div class="stat"><b id="n2">0</b><span>krajín</span></div><div class="stat"><b id="n3">0</b><span>reaktorov</span></div></div>
+ <div class="seg"><button id="v1" class="chip vb act" data-r="_" style="--c1:#7aa2ff"><i></i>Treemap</button><button id="v2" class="chip vb" data-r="_" style="--c1:#7aa2ff"><i></i>Mapa sveta</button></div>
+<div class="stats"><div class="stat"><b id="n1">0</b><span>PWh celkom</span></div><div class="stat"><b id="n2">0</b><span>krajín</span></div><div class="stat"><b id="n3">0</b><span>reaktorov</span></div></div>
 </header>
 <div class="legend" id="lg"></div>
-<main><div id="map"></div></main>
+<main><div id="map"></div><div id="wm"><button id="rs" class="chip" data-r="_" style="--c1:#7aa2ff"><i></i>Celý svet</button><button id="zi" class="chip" data-r="_" style="--c1:#7aa2ff">＋</button><button id="zo" class="chip" data-r="_" style="--c1:#7aa2ff">−</button></div><div id="pl"></div></main>
 <div id="tip"></div>
-<footer>Zdroj: World Nuclear Association · IAEA PRIS · TWh a podiel jadra: dáta 2024 · reaktory: stav 2026</footer>
+<footer>Zdroj: World Nuclear Association · IAEA PRIS · TWh a podiel jadra: dáta 2024 · reaktory: stav 2026 · elektrárne na mape: výber, súradnice približné</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.9/datamaps.world.min.js"></script>
 <script>
 const R={"Európa":["#3b82f6","#6d5dfc"],"Ázia":["#f59e0b","#ef4444"],"Amerika":["#10b981","#06b6d4"],"Afrika":["#ec4899","#a855f7"]};
 // [kód, názov, región, TWh, reaktory] – hodnoty sú približné, uprav podľa vlastných dát
@@ -78,11 +137,11 @@ function sq(it,x,y,w,h){const o=[];let r=it.slice();while(r.length){const sh=Mat
  else{const rh=sum/w;let cx=x;row.forEach(i=>{const iw=i.a/rh;o.push({d:i.d,x:cx,y,w:iw,h:rh});cx+=iw});y+=rh;h-=rh}}return o}
 let sel=null,flt=null;
 function draw(first){const W=map.clientWidth,H=map.clientHeight,k=W*H/T;
- const rects=sq(D.map(d=>({d,a:d[3]*k})),0,0,W,H);map.innerHTML="";
+ const rects=sq(D.map(d=>({d,a:d[3]*k})),0,0,W,H);map.innerHTML="";if(first){map.classList.remove("sw");void map.offsetWidth;map.classList.add("sw")}
  rects.forEach((r,i)=>{const d=r.d,c=R[d[2]],m=Math.min(r.w,r.h),el=document.createElement("div");
   el.className="tile"+(sel==d[0]?" sel":"")+(flt&&flt!=d[2]?" off":"");
-  el.style.cssText=`left:${r.x}px;top:${r.y}px;width:${r.w}px;height:${r.h}px;--i:${i};--c1:${c[0]};--c2:${c[1]};--s:${Math.min(1.24,Math.max(1.025,1+16/m)).toFixed(2)};--p:${Math.max(280,m*3.5).toFixed(0)}px`;
-  if(!first)el.style.animation="none";
+  el.style.cssText=`left:${r.x}px;top:${r.y}px;width:${r.w}px;height:${r.h}px;--i:${i};--c1:${c[0]};--c2:${c[1]};--s:${Math.min(1.24,Math.max(1.025,1+16/m)).toFixed(2)};--p:${Math.max(280,m*3.5).toFixed(0)}px;--dl:${150+i*48}ms`;
+  if(!first){el.style.animation="none";el.classList.add("nf")}
   const pad=m<45?3:m<75?6:m<110?9:12,iw=r.w-11-2*pad,ih=r.h-11-2*pad,fs=Math.max(7,Math.min(34,m/4.2,iw/1.45)),fn=Math.min(34,m/4.2,iw/(d[1].length*.62)),full=fn>=15&&m>=64&&ih>=fn*1.2,xl=r.w>170&&r.h>140,rank=D.indexOf(d)+1,sh=d[3]/T*100,fc=full?fn:fs,used=fc*1.15,num=fmt(d[3]),twTxt=iw>=(num.length+4)*6.6?num+" TWh":(iw>=num.length*7.4?num:""),showTW=twTxt&&ih>=used+16,showNm=!full&&!xl&&ih>=used+34&&iw>=d[1].length*6.3,tiny=!showTW&&!showNm&&!xl;
   el.innerHTML=`<div class="in" style="padding:${pad}px;${tiny?"justify-content:center;align-items:center;":""}"><div class="cc" style="font-size:${fc.toFixed(1)}px;line-height:1.1;${fc<15?"letter-spacing:0;":""}">${full?d[1]:d[0]}</div>${xl?`<div class="nm">${d[2]} · #${rank} producent</div><div class="det"><div><b>${fmt(sh)} %</b><span>glob. podiel</span></div><div><b>${d[4]}</b><span>reaktorov</span></div>${r.w>270?`<div><b>${fmt(d[3]/d[4])}</b><span>TWh / reaktor</span></div>`:""}</div>`:(showNm?`<div class="nm">${d[1]}</div>`:"")}${xl?`<div class="tw" style="font-size:${Math.min(30,m/7).toFixed(0)}px">${num} TWh</div>`:(showTW?`<div class="tw f">${twTxt}</div>`:"")}</div>`;
   el.onmouseenter=()=>{map.classList.add("h");tip.innerHTML=`<h3 style="color:${c[0]}">${d[1]}</h3><div>Región<b>${d[2]}</b></div><div>Výroba<b>${fmt(d[3])} TWh</b></div><div>Glob. podiel<b>${fmt(d[3]/T*100)} %</b></div><div>Reaktory<b>${d[4]}</b></div><div>Poradie vo svete<b>#${D.indexOf(d)+1}</b></div><div>Výroba na reaktor<b>${fmt(d[3]/d[4])} TWh</b></div><div>Podiel jadra v krajine<b>${fmt(d[5])} %</b></div><div class="cap">Podiel na svetovej výrobe<b>${fmt(d[3]/T*100)} %</b></div><div class="bar" style="--c1:${c[0]};--c2:${c[1]}"><i style="width:${Math.max(2,d[3]/T*100).toFixed(1)}%"></i></div>`;tip.classList.add("v")};
@@ -96,5 +155,63 @@ $("#lg").innerHTML=Object.keys(R).map(n=>`<button class="chip" data-r="${n}" sty
 document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{flt=flt==b.dataset.r?null:b.dataset.r;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x.dataset.r==flt));draw(false)});
 draw(true);count("#n1",T/1000,2);count("#n2",D.length,0,1200);count("#n3",RE,0);
 document.querySelectorAll(".chip,.stat").forEach(e=>{e.addEventListener("pointermove",ev=>{const b=e.getBoundingClientRect(),x=(ev.clientX-b.left)/b.width-.5,y=(ev.clientY-b.top)/b.height-.5;e.style.setProperty("--rx",(-y*22).toFixed(1)+"deg");e.style.setProperty("--ry",(x*22).toFixed(1)+"deg")});e.addEventListener("pointerleave",()=>{e.style.removeProperty("--rx");e.style.removeProperty("--ry")})});
+const I3={US:"USA",CN:"CHN",FR:"FRA",RU:"RUS",KR:"KOR",CA:"CAN",JP:"JPN",ES:"ESP",UA:"UKR",SE:"SWE",IN:"IND",GB:"GBR",AE:"ARE",FI:"FIN",BE:"BEL",CZ:"CZE",CH:"CHE",PK:"PAK",SK:"SVK",BG:"BGR",HU:"HUN",BR:"BRA",BY:"BLR",MX:"MEX",RO:"ROU",AR:"ARG",ZA:"ZAF",IR:"IRN",SI:"SVN",NL:"NLD",AM:"ARM"},ISO2={},DC={};
+Object.keys(I3).forEach(k=>ISO2[I3[k]]=k);D.forEach(d=>DC[d[0]]=d);
+// [krajina, elektráreň, lat, lon, reaktory, poznámka] – výber najvýznamnejších, údaje z pamäte, súradnice približné
+const PL=[["US","Palo Verde",33.39,-112.86,3],["US","Vogtle",33.14,-81.76,4],["US","Browns Ferry",34.70,-87.12,3],["US","Comanche Peak",32.30,-97.79,2],["US","South Texas",28.80,-96.05,2],["US","Peach Bottom",39.76,-76.27,2],["US","Oconee",34.79,-82.90,3],["US","Diablo Canyon",35.21,-120.85,2],["US","Byron",42.08,-89.28,2],["US","Braidwood",41.24,-88.23,2],["CA","Bruce",44.33,-81.60,8],["CA","Darlington",43.87,-78.72,4],["MX","Laguna Verde",19.72,-96.41,2],["BR","Angra",-23.01,-44.46,2],["AR","Atucha",-33.97,-59.21,2],["AR","Embalse",-32.23,-64.44,1],["FR","Gravelines",51.01,2.14,6],["FR","Paluel",49.86,0.63,4],["FR","Cattenom",49.41,6.22,4],["FR","Flamanville",49.54,-1.88,3],["FR","Tricastin",44.33,4.73,4],["FR","Blayais",45.26,-0.69,4],["FR","Chooz",50.09,4.79,2],["FR","Golfech",44.11,0.85,2],["GB","Sizewell B",52.21,1.62,1],["GB","Heysham",54.03,-2.92,4],["GB","Hartlepool",54.64,-1.18,2],["GB","Torness",55.97,-2.41,2],["ES","Almaraz",39.81,-5.70,2],["ES","Ascó",41.20,0.57,2],["ES","Vandellòs II",40.95,0.87,1],["ES","Trillo",40.70,-2.62,1],["ES","Cofrentes",39.22,-1.05,1],["SE","Forsmark",60.40,18.17,3],["SE","Ringhals",57.26,12.11,2],["SE","Oskarshamn",57.42,16.67,1],["FI","Olkiluoto",61.24,21.44,3],["FI","Loviisa",60.37,26.35,2],["BE","Doel",51.32,4.26,3],["BE","Tihange",50.53,5.27,2],["CZ","Dukovany",49.09,16.15,4],["CZ","Temelín",49.18,14.38,2],["SK","Mochovce",48.26,18.46,3],["SK","Jaslovské Bohunice",48.49,17.68,2],["HU","Paks",46.57,18.85,4],["BG","Kozloduj",43.75,23.77,2],["RO","Černavoda",44.32,28.06,2],["SI","Krško",45.94,15.52,1],["CH","Beznau",47.55,8.23,2],["CH","Gösgen",47.37,7.97,1],["CH","Leibstadt",47.60,8.18,1],["NL","Borssele",51.43,3.72,1],["RU","Balakovo",52.09,47.95,4],["RU","Kalinin",57.91,35.08,4],["RU","Rostov",47.59,42.37,4],["RU","Kola",67.47,32.47,4],["RU","Smolensk",54.17,33.25,3],["UA","Záporožie",47.51,34.59,6,"odstavená, pod ruskou kontrolou"],["UA","Rivne",51.33,25.89,4],["UA","Južnoukrajinská",47.82,31.22,3],["UA","Chmeľnyckyj",50.30,26.65,2],["BY","Astravec",54.76,26.09,2],["AM","Mecamor",40.18,44.14,1],["IR","Búšehr",28.83,50.89,1],["AE","Barakah",23.96,52.26,4],["PK","Čašma",32.39,71.45,4],["PK","Karáčí",24.84,66.79,2],["IN","Kudankulam",8.17,77.71,2],["IN","Tarapur",19.83,72.65,4],["IN","Kaiga",14.86,74.44,4],["IN","Kakrapar",21.24,73.35,4],["CN","Daya Bay a Ling Ao",22.60,114.55,6],["CN","Hongyanhe",39.80,121.48,6],["CN","Tianwan",34.69,119.45,6],["CN","Yangjiang",21.71,112.26,6],["CN","Fuqing",25.44,119.44,6],["CN","Fangchenggang",21.69,108.15,4],["CN","Taishan",21.92,112.98,2],["CN","Ningde",26.73,120.29,4],["KR","Hanbit",35.42,126.42,6],["KR","Hanul",37.09,129.38,8],["JP","Kashiwazaki-Kariwa",37.43,138.60,7,"v roku 2024 odstavená"],["JP","Sendai",31.83,130.19,2],["JP","Takahama",35.52,135.51,4],["JP","Ohi",35.54,135.65,2],["JP","Genkai",33.52,129.84,2],["JP","Ikata",33.49,132.31,1],["ZA","Koeberg",-33.68,18.43,2]];
+let wm;
+const mv=e=>{const tw=tip.offsetWidth,th=tip.offsetHeight,g=26;tip.style.left=e.clientX+"px";tip.style.top=e.clientY+"px";tip.style.setProperty("--ox",e.clientX+g+tw>innerWidth-8?(-tw-g)+"px":g+"px");tip.style.setProperty("--oy",e.clientY+g+th>innerHeight-8?(-th-g)+"px":g+"px")};
+const tp=(h,e)=>{tip.innerHTML=h;tip.classList.add("v");mv(e)};
+function zoom(c){const n=wm.svg.node(),W=n.viewBox.baseVal.width||n.clientWidth,H=n.viewBox.baseVal.height||n.clientHeight;let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9,s=1,t=[0,0];
+ if(c){wm.svg.selectAll(".datamaps-bubble").each(function(d){if(d.cc!=c)return;const x=+this.getAttribute("cx"),y=+this.getAttribute("cy");x0=Math.min(x0,x);x1=Math.max(x1,x);y0=Math.min(y0,y);y1=Math.max(y1,y)});s=Math.min(12,.8*Math.min(W/(x1-x0+90),H/(y1-y0+90)));t=[W/2-s*(x0+x1)/2,H/2-s*(y0+y1)/2]}
+ wm.svg.selectAll("g").transition().duration(900).attr("transform","translate("+t+")scale("+s+")");
+ wm.svg.selectAll(".datamaps-bubble").transition().duration(900).attr("r",d=>d.radius/Math.pow(s,.6));
+ const p=$("#pl");if(c){const d=DC[c];p.innerHTML=`<h3 style="color:${R[d[2]][0]}">${d[1]}</h3>`+PL.filter(q=>q[0]==c).map(q=>`<div class="pr"><span>${q[1]}</span><b>${q[4]}×</b></div>`).join("")+`<div class="pn">Zoznam obsahuje najvýznamnejšie elektrárne, nie všetky.</div>`;p.classList.add("v")}else p.classList.remove("v")}
+function wmBuild(){const el=$("#wm");
+ if(!window.Datamap){el.insertAdjacentHTML("beforeend",'<p style="padding:30px">Mapu sa nepodarilo načítať.</p>');return}
+ const data={},fills={defaultFill:"rgba(255,255,255,.08)"};D.forEach(d=>data[I3[d[0]]]={fillKey:d[2]});Object.keys(R).forEach(k=>fills[k]=R[k][0]);
+ wm=new Datamap({element:el,fills,data,responsive:true,geographyConfig:{popupOnHover:false,highlightOnHover:false,borderColor:"rgba(255,255,255,.18)",borderWidth:.5}});
+ wm.bubbles(PL.map(p=>{const d=DC[p[0]];return{name:p[1],c:d[1],cc:p[0],units:p[4],note:p[5],latitude:p[2],longitude:p[3],radius:3+p[4]*.9,fillKey:d[2]}}),{popupOnHover:false,highlightOnHover:false,borderWidth:1.2,borderColor:"#fff",fillOpacity:.95});
+ wm.svg.selectAll(".datamaps-bubble").on("mousemove",function(d){tp(`<h3 style="color:${R[DC[d.cc][2]][0]}">${d.name}</h3><div>Krajina<b>${d.c}</b></div><div>Reaktory<b>${d.units}</b></div>${d.note?`<div>Stav<b>${d.note}</b></div>`:""}`,d3.event)}).on("mouseleave",()=>tip.classList.remove("v")).on("click",d=>zoom(d.cc));
+ const sub=wm.svg.selectAll(".datamaps-subunit");
+ sub.filter(f=>DC[ISO2[f.id]]).style("cursor","pointer");
+ sub.on("mousemove",function(f){const c=ISO2[f.id],d=DC[c];tp(d?`<h3 style="color:${R[d[2]][0]}">${d[1]}</h3><div>Región<b>${d[2]}</b></div><div>Výroba<b>${fmt(d[3])} TWh</b></div><div>Podiel jadra v krajine<b>${fmt(d[5])} %</b></div><div>Reaktory<b>${d[4]}</b></div><div>Elektrárne na mape<b>${PL.filter(q=>q[0]==c).length}</b></div>`:`<h3>${f.properties.name}</h3><div>Nie je medzi krajinami v grafe</div>`,d3.event)}).on("mouseleave",()=>tip.classList.remove("v")).on("click",f=>{if(DC[ISO2[f.id]])zoom(ISO2[f.id])})}
+function sv(m){document.body.classList.toggle("mv",!!m);$("#v1").classList.toggle("act",!m);$("#v2").classList.toggle("act",!!m);tip.classList.remove("v");if(m){if(!wm)wmBuild();else wm.resize()}else{draw(true);count("#n1",T/1000,2);count("#n2",D.length,0,1200);count("#n3",RE,0)}}
+$("#v1").onclick=()=>sv(0);$("#v2").onclick=()=>sv(1);$("#rs").onclick=()=>wm&&zoom(null);
+addEventListener("resize",()=>{if(wm&&document.body.classList.contains("mv"))wm.resize()});
+function wmBuild(){const el=$("#wm"),T0=window.Datamap&&Datamap.prototype.worldTopo;
+ if(!T0||!window.topojson){el.insertAdjacentHTML("beforeend",'<p style="padding:30px">Mapu sa nepodarilo načítať.</p>');return}
+ const F=topojson.feature(T0,T0.objects.world).features.filter(f=>f.id!="ATA");
+ let W=el.clientWidth,H=el.clientHeight,R0=Math.min(W,H)/2-14,k=1,rot=[-15,-30],auto=true,hf=null;
+ const proj=d3.geo.orthographic().clipAngle(90).precision(.5).translate([W/2,H/2]),path=d3.geo.path().projection(proj);
+ el.insertAdjacentHTML("afterbegin",`<svg id="gl" width="${W}" height="${H}"><defs><radialGradient id="og" cx=".5" cy=".5" r=".5" fx=".35" fy=".3"><stop offset="0" stop-color="#3a5bb8"/><stop offset=".6" stop-color="#16265a"/><stop offset="1" stop-color="#080d24"/></radialGradient><radialGradient id="sh" cx=".5" cy=".5" r=".5" fx=".33" fy=".28"><stop offset="0" stop-color="#fff" stop-opacity=".3"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/><stop offset=".75" stop-color="#000" stop-opacity=".12"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></radialGradient><filter id="bv" x="-3%" y="-3%" width="106%" height="106%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.4" result="b"/><feSpecularLighting in="b" surfaceScale="5" specularConstant=".95" specularExponent="22" lighting-color="#fff" result="s"><feDistantLight azimuth="225" elevation="52"/></feSpecularLighting><feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/><feComposite in="SourceGraphic" in2="s2" operator="arithmetic" k1="0" k2="1" k3=".9" k4="0"/></filter></defs><circle class="oc" fill="url(#og)"/><path class="gr"/><g class="cs"></g><g class="cs2" filter="url(#bv)"></g><g class="hv" filter="url(#bv)"></g><g class="ls"></g><g class="ps"></g><circle class="sp" fill="url(#sh)"/></svg>`);
+ const svg=d3.select("#gl"),oc=svg.select(".oc"),sp=svg.select(".sp"),hv=svg.select(".hv"),gr=svg.select(".gr").datum(d3.geo.graticule()());
+ F.forEach(f=>{f.c=d3.geo.centroid(f);f.a=Math.sqrt(d3.geo.area(f));f.d=DC[ISO2[f.id]]});
+ const ct=svg.select(".cs").selectAll("path").data(F).enter().append("path").attr("class",f=>"ct"+(f.d?" on":"")).style("--i",(f,i)=>i).style("fill",f=>f.d?R[f.d[2]][0]:"rgba(255,255,255,.1)").style("--gc",f=>f.d?R[f.d[2]][0]:"#fff").style("--hs",f=>(1+Math.min(.3,.012/(f.a+.02))).toFixed(3));
+ ct.filter(f=>f.d).each(function(){svg.select(".cs2").node().appendChild(this)});
+ const lb=svg.select(".ls").selectAll("text").data(F).enter().append("text").attr("class","lb").text(f=>f.d?f.d[1]:f.properties.name);
+ const pt=svg.select(".ps").selectAll("g").data(PL.map(p=>({name:p[1],cc:p[0],c:DC[p[0]][1],units:p[4],note:p[5],ll:[p[3],p[2]],r:3+p[4]*.8,col:R[DC[p[0]][2]][0]}))).enter().append("g").attr("class","pt");
+ pt.append("circle").attr("class","hl").attr("r",d=>d.r*2).style("fill",d=>d.col);
+ pt.append("circle").attr("class","dt").attr("r",d=>d.r).style("--i",(d,i)=>i);
+ const up=()=>{proj.scale(R0*k).rotate([rot[0],rot[1]]);const cen=[-rot[0],-rot[1]],sc=R0*k,kk=Math.pow(k,.4);
+  oc.attr("cx",W/2).attr("cy",H/2).attr("r",sc);sp.attr("cx",W/2).attr("cy",H/2).attr("r",sc);gr.attr("d",path);ct.attr("d",path);if(hf)hv.select("path").attr("d",path(hf));
+  pt.each(function(d){const v=d3.geo.distance(d.ll,cen)<1.5;this.style.display=v?"":"none";if(v)this.setAttribute("transform","translate("+proj(d.ll)+")scale("+kk+")")});
+  lb.each(function(f){const dist=d3.geo.distance(f.c,cen),show=dist<1.25&&f.a*k>(f.d?0.24:0.34);this.style.display=show?"":"none";if(show){const p=proj(f.c);this.setAttribute("x",p[0]);this.setAttribute("y",p[1]);this.style.fontSize=(9+Math.min(5,k*.7)+(f.d?1.5:0)).toFixed(1)+"px";this.style.opacity=Math.max(0,Math.min(1,(1.25-dist)*3))}})};
+ const go=(r2,k2,ms)=>{auto=false;const ir=d3.interpolate(rot,r2),ik=d3.interpolate(Math.log(k),Math.log(k2));d3.transition().duration(ms||1300).ease("cubic-in-out").tween("g",()=>t=>{rot=ir(t);k=Math.exp(ik(t));up()})};
+ svg.call(d3.behavior.drag().on("drag",()=>{auto=false;const s=70/(R0*k);rot[0]+=d3.event.dx*s;rot[1]=Math.max(-85,Math.min(85,rot[1]-d3.event.dy*s));up()})).on("wheel",()=>{d3.event.preventDefault();auto=false;k=Math.max(.8,Math.min(14,k*Math.exp(-d3.event.deltaY*.002)));up()}).on("mouseenter",()=>{auto=false});
+ const hide=()=>{tip.classList.remove("v");hf=null;hv.html("")};
+ ct.on("mouseenter",function(f){if(f.d){hf=f;hv.html("");hv.append("path").attr("class","hc").style("fill",R[f.d[2]][0]).style("--gc",R[f.d[2]][0]).style("--hs",(1+Math.min(.3,.012/(f.a+.02))).toFixed(3)).attr("d",path(f))}}).on("mousemove",f=>{const c=ISO2[f.id],d=f.d;tp(d?ti(d,c):`<h3>${f.properties.name}</h3><div>Nie je medzi krajinami v grafe</div>`,d3.event)}).on("mouseleave",hide).on("click",f=>{if(f.d)zoom(ISO2[f.id])});
+ pt.on("mousemove",d=>tp(pi(d),d3.event)).on("mouseleave",hide).on("click",d=>zoom(d.cc));
+ d3.timer(()=>{if(auto&&document.body.classList.contains("mv")){rot[0]+=.15;up()}});
+ wm={go:(r2,k2)=>go(r2,k2),zm:f=>go(rot,Math.max(.8,Math.min(14,k*f)),500),resize(){W=el.clientWidth;H=el.clientHeight;R0=Math.min(W,H)/2-14;svg.attr("width",W).attr("height",H);proj.translate([W/2,H/2]);up()}};
+ up()}
+function zoom(c){if(!wm)return;const p=$("#pl");
+ if(c){const q=PL.filter(x=>x[0]==c),d=DC[c],lo=d3.mean(q,x=>x[3]),la=d3.mean(q,x=>x[2]),s=d3.max(q,x=>d3.geo.distance([lo,la],[x[3],x[2]]));
+  wm.go([-lo,-la],Math.min(9,Math.max(1.2,.6/Math.sin(Math.max(s,.03)))));
+  p.innerHTML=`<h3 style="color:${R[d[2]][0]}">${d[1]}</h3>`+q.map(x=>`<div class="pr"><span>${x[1]}</span><b>${x[4]}×</b></div>`).join("")+`<div class="pn">Zoznam obsahuje najvýznamnejšie elektrárne, nie všetky.</div>`;p.classList.add("v")}
+ else{wm.go([-15,-30],1);p.classList.remove("v")}}
+$("#zi").onclick=()=>wm&&wm.zm(1.6);$("#zo").onclick=()=>wm&&wm.zm(1/1.6);
+function ti(d){const c=R[d[2]];return `<h3 style="color:${c[0]}">${d[1]}</h3><div>Región<b>${d[2]}</b></div><div>Výroba<b>${fmt(d[3])} TWh</b></div><div>Glob. podiel<b>${fmt(d[3]/T*100)} %</b></div><div>Reaktory<b>${d[4]}</b></div><div>Poradie vo svete<b>#${D.indexOf(d)+1}</b></div><div>Výroba na reaktor<b>${fmt(d[3]/d[4])} TWh</b></div><div>Podiel jadra v krajine<b>${fmt(d[5])} %</b></div><div>Elektrárne na mape<b>${PL.filter(q=>q[0]==d[0]).length}</b></div><div class="cap">Podiel na svetovej výrobe<b>${fmt(d[3]/T*100)} %</b></div><div class="bar" style="--c1:${c[0]};--c2:${c[1]}"><i style="width:${Math.max(2,d[3]/T*100).toFixed(1)}%"></i></div>`}
+function pi(d){const k=DC[d.cc],c=R[k[2]],s=d.units/k[4]*100;return `<h3 style="color:${c[0]}">${d.name}</h3><div>Krajina<b>${d.c}</b></div><div>Región<b>${k[2]}</b></div><div>Reaktory<b>${d.units}</b></div><div>Výroba krajiny<b>${fmt(k[3])} TWh</b></div>${d.note?`<div>Stav<b>${d.note}</b></div>`:""}<div class="cap">Podiel reaktorov krajiny<b>${fmt(s)} %</b></div><div class="bar" style="--c1:${c[0]};--c2:${c[1]}"><i style="width:${Math.min(100,s).toFixed(1)}%"></i></div>`}
 let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>draw(false),120)});
 </script></body></html>
